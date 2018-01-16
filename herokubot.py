@@ -11,6 +11,7 @@ def start(bot, update):
 def echo(bot, update):
     update.effective_message.reply_text(update.effective_message.text)
 
+
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
 
