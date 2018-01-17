@@ -7,22 +7,27 @@ bot = telebot.TeleBot("542121136:AAGkg21l-K8OinyWTZj5r5FffHouTaotF6g")
 # main_menu
 user_markup = telebot.types.ReplyKeyboardMarkup(True, None)
 # user_markup.row('/start', '/stop')
-user_markup.row('📋 IUT tg catalog', '🏢 IUT academics')
-user_markup.row('🗓 IUT calendar', '📜 Posts/ Blogs')
-user_markup.row('🏗 Made in IUT', '🚀 IUT Startup')
+user_markup.row('📋 Catalog', '🏢 Academics')
+user_markup.row('🗓 Calendar', '📜 Posts')
+#user_markup.row('🏗 Made in IUT', '🚀 IUT Startup')
 user_markup.row('💾 Share it', '💻 Internships & 💼 Jobs')
 
 """ '🎓 Success & 🏆 Achievements', '🤹🏻‍♀️ Enjoyment & 📂 Unofficals' """
 
 # IUT catalog menu
 user_markup1 = telebot.types.ReplyKeyboardMarkup(True, None)
-user_markup1.row('⬅ Back', '👥 Groups')
-user_markup1.row('🤖 Bots', '📢 Channels', '🌀 Others')
+user_markup1.row('⬅ Back', '📢 Channels')
+user_markup1.row('🤖 Bots', '👥 Groups', '🌀 Others')
 # IUT academics
 user_markup2 = telebot.types.ReplyKeyboardMarkup(True, None)
+user_markup2.row('⬅ Back', '👤 Professors' )
+user_markup2.row('📝 Exams & policies', '📊 Grades &  policies')
+
+"""
 user_markup2.row('⬅ Back', '🗞  Studying guide')
 user_markup2.row('📝 Exams & policies', '📊 Grades &  policies')
 user_markup2.row('👤 Professors', '👥 Faculty staff')
+"""
 
 # IUT calendar
 user_markup3 = telebot.types.ReplyKeyboardMarkup(True, None)
@@ -30,10 +35,19 @@ user_markup3.row('⬅ Back', '🔜 Key dates')
 user_markup3.row('🗒 Academic calendar', '📅 Event calendar')
 
 # IUT Posts/blogs
+
+user_markup4 = telebot.types.ReplyKeyboardMarkup(True, None)
+user_markup4.row('⬅ Back', '📔 Useful blogs')
+"""user_markup4.row(' 👨‍💻👩‍💻 Student\'s blogs ', '👨‍🏫👩‍🏫 Professor\'s blogs')"""
+"""user_markup4.row('📰 IUT publications', '📹📷 Vblogs')"""
+
+"""
 user_markup4 = telebot.types.ReplyKeyboardMarkup(True, None)
 user_markup4.row('⬅ Back', '📔 Useful blogs')
 user_markup4.row(' 👨‍💻👩‍💻 Student\'s blogs ', '👨‍🏫👩‍🏫 Professor\'s blogs')
 user_markup4.row('📰 IUT publications', '📹📷 Vblogs')
+"""
+
 # Made in IUT
 user_markup5 = telebot.types.ReplyKeyboardMarkup(True, None)
 user_markup5.row('⬅ Back', '🌐 Web Development')
@@ -69,13 +83,13 @@ def handle_stop(message):
 
 @bot.message_handler(content_types=["text"])
 def main_menu(message):
-    if message.text == "📋 IUT tg catalog":
+    if message.text == "📋 Catalog":
         bot.send_message(message.from_user.id, 'Welcome to 📋 IUT tg catalog', reply_markup=user_markup1)
-    elif message.text == "🏢 IUT academics":
+    elif message.text == "🏢 Academics":
         bot.send_message(message.from_user.id, 'Welcome to 🏢 IUT academics', reply_markup=user_markup2)
-    elif message.text == "🗓 IUT calendar":
+    elif message.text == "🗓 Calendar":
         bot.send_message(message.from_user.id, 'Welcome to 🗓 IUT calendar', reply_markup=user_markup3)
-    elif message.text == "📜 Posts/ Blogs":
+    elif message.text == "📜 Posts":
         bot.send_message(message.from_user.id, 'Welcome to 📜 Posts/ Blogs', reply_markup=user_markup4)
     elif message.text == "🏗 Made in IUT":
         bot.send_message(message.from_user.id, 'Welcome to 🏗 Made in IUT', reply_markup=user_markup5)
@@ -127,7 +141,7 @@ def main_menu(message):
         keyboard.row(url_button5)
         bot.send_message(message.chat.id, "👥 IUT groups in telegram", reply_markup=keyboard)
     else:
-        bot.send_message(message.chat.id, "11Sorry! Retry again | Press /start %s" % message.text)
+        bot.send_message(message.chat.id, "Sorry! Retry again | Press /start %s is not available now(" % message.text)
 
 
 if __name__ == '__main__':
