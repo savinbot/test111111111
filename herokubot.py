@@ -1,4 +1,8 @@
 import logging
+import psycopg2
+
+
+
 import os
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
