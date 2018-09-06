@@ -6,8 +6,8 @@ import requests
 import time
 
 
-TOKEN = '542121136:AAGkg21l-K8OinyWTZj5r5FffHouTaotF6g'
-bot = telebot.TeleBot("542121136:AAGkg21l-K8OinyWTZj5r5FffHouTaotF6g")
+TOKEN = '656291609:AAEHKPUpKyrtGtVOJ6NBDULIdpXjYaEzuQ4'
+bot = telebot.TeleBot("656291609:AAEHKPUpKyrtGtVOJ6NBDULIdpXjYaEzuQ4")
 #bot.polling(none_stop=False, interval=0, timeout=20)
 
 # getFile
